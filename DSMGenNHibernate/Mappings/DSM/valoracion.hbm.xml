@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DSMGenNHibernate"
+		                   namespace="DSMGenNHibernate.EN.DSM">
+		    
+		    
+			
+				<class name="ValoracionEN" table="Valoracion"> 
+				  	
+						<id name="Id" column="idValoracion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Puntuacion" type="integer"> 
+						<column name="puntuacion"  not-null="true"/>
+					</property>
+			
+			
+		  			
+						<many-to-one name="Usuario" class="DSMGenNHibernate.EN.DSM.UsuarioEN" >	
+								<column name="FK_idUsuario_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Viajes" class="DSMGenNHibernate.EN.DSM.ViajeEN" >	
+								<column name="FK_idViaje_idViajes"/> 
+						</many-to-one>
+											 					
+			
+			
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ValoracionENReadAllHQL">from ValoracionEN</query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DSMGenNHibernate"
+		                   namespace="DSMGenNHibernate.EN.DSM">
+		    
+		    
+			
+				<class name="ItinerarioEN" table="Itinerario"> 
+				  	
+						<id name="Id" column="idItinerario" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Fechas" type="string"> 
+						<column name="fechas"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Viajes" table="[intinerario_viaje]"  >
+							<key>
+								
+									<column name="FK_idItinerario_idItinerarios"/> 
+							</key>
+      						<many-to-many class="DSMGenNHibernate.EN.DSM.ViajeEN">
+									<column name="FK_idViaje_idViajes"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="PuntoDeItinerario" >
+							<key>
+							
+								
+								<column name="FK_idItinerario_idItinerario_0"/>
+					      	</key>
+							<one-to-many class="DSMGenNHibernate.EN.DSM.PuntoDeItinerarioEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ItinerarioENReadAllHQL">from ItinerarioEN</query>
+		</hibernate-mapping>
+	

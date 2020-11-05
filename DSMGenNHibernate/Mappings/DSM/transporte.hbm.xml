@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DSMGenNHibernate"
+		                   namespace="DSMGenNHibernate.EN.DSM">
+		    
+		    
+			
+				
+<joined-subclass name="TransporteEN" extends="DSMGenNHibernate.EN.DSM.PuntoDeItinerarioEN" table="Transporte"> 
+	<key>
+    	
+				<column name="idPuntoDeItinerario"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="Tipo" > 
+						<column name="tipo"  not-null="true"/>
+					</property>
+					<property name="Origen" type="string"> 
+						<column name="origen"  not-null="true"/>
+					</property>
+					<property name="Destino" type="string"> 
+						<column name="destino"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="TransporteENReadAllHQL">from TransporteEN</query>
+		</hibernate-mapping>
+	

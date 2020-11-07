@@ -82,7 +82,8 @@ public static void InitializeData ()
 
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
-
+                UsuarioCEN usucen = new UsuarioCEN();
+                usucen.New_("Jorge", "1234");
                 //Esto es un cambio
 
                 /*PROTECTED REGION END*/

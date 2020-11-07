@@ -141,6 +141,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\DSM\ComentarioEN.cs" />
 	<Compile Include="CEN\DSM\ComentarioCEN.cs" />
 	<Compile Include="CAD\DSM\IComentarioCAD.cs" />
@@ -213,12 +214,11 @@
 	<Compile Include="CAD\DSM\IValoracionCAD.cs" />
 	<Compile Include="CAD\DSM\ValoracionCAD.cs" />
 	<Compile Include="CP\DSM\ValoracionCP.cs" />
-			<Compile Include="CEN\DSM\ValoracionCEN_Valorar.cs" />
-			
 			<Compile Include="CEN\DSM\ValoracionCEN_HacerMedia.cs" />
 			
 			<Compile Include="CEN\DSM\ValoracionCEN_ConsultarRanking.cs" />
 			
+			<Compile Include="CP\DSM\ValoracionCP_New_.cs" />
 			
 			
 			

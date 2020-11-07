@@ -39,7 +39,7 @@ public IViajeCAD get_IViajeCAD ()
         return this._IViajeCAD;
 }
 
-public int CrearViaje (string p_nombre, string p_pais, string p_ciudad, string p_descripcion, int p_creador)
+public int CrearViaje (string p_nombre, string p_pais, string p_ciudad, string p_descripcion, int p_creador, double p_valoracionMedia)
 {
         ViajeEN viajeEN = null;
         int oid;
@@ -62,13 +62,15 @@ public int CrearViaje (string p_nombre, string p_pais, string p_ciudad, string p
                 viajeEN.Creador.Id = p_creador;
         }
 
+        viajeEN.ValoracionMedia = p_valoracionMedia;
+
         //Call to ViajeCAD
 
         oid = _IViajeCAD.CrearViaje (viajeEN);
         return oid;
 }
 
-public void Modify (int p_Viaje_OID, string p_nombre, string p_pais, string p_ciudad, string p_descripcion)
+public void Modify (int p_Viaje_OID, string p_nombre, string p_pais, string p_ciudad, string p_descripcion, double p_valoracionMedia)
 {
         ViajeEN viajeEN = null;
 
@@ -79,6 +81,7 @@ public void Modify (int p_Viaje_OID, string p_nombre, string p_pais, string p_ci
         viajeEN.Pais = p_pais;
         viajeEN.Ciudad = p_ciudad;
         viajeEN.Descripcion = p_descripcion;
+        viajeEN.ValoracionMedia = p_valoracionMedia;
         //Call to ViajeCAD
 
         _IViajeCAD.Modify (viajeEN);
@@ -95,6 +98,12 @@ public void AgregarCompañero (int p_Viaje_OID, System.Collections.Generic.IList
         //Call to ViajeCAD
 
         _IViajeCAD.AgregarCompañero (p_Viaje_OID, p_compañeros_OIDs);
+}
+public void AsignarItinerario (int p_Viaje_OID, System.Collections.Generic.IList<int> p_itinerarios_OIDs)
+{
+        //Call to ViajeCAD
+
+        _IViajeCAD.AsignarItinerario (p_Viaje_OID, p_itinerarios_OIDs);
 }
 }
 }

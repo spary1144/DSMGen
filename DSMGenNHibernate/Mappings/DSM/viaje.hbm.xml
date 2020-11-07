@@ -24,6 +24,9 @@
 					<property name="Descripcion" type="string"> 
 						<column name="descripcion"  not-null="true"/>
 					</property>
+					<property name="ValoracionMedia" type="double"> 
+						<column name="valoracionMedia"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -90,6 +93,8 @@
 					      	</key>
 							<one-to-many class="DSMGenNHibernate.EN.DSM.ValoracionEN"/>
 					    </bag>
+					
+			
 					
 					
 					

@@ -27,5 +27,7 @@ void Destroy (int id
 
 
 void AgregarCompañero (int p_Viaje_OID, System.Collections.Generic.IList<int> p_compañeros_OIDs);
+
+void AsignarItinerario (int p_Viaje_OID, System.Collections.Generic.IList<int> p_itinerarios_OIDs);
 }
 }

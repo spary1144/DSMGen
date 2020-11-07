@@ -108,6 +108,9 @@ public void ModifyDefault (ViajeEN viaje)
 
 
 
+
+                viajeEN.ValoracionMedia = viaje.ValoracionMedia;
+
                 session.Update (viajeEN);
                 SessionCommit ();
         }
@@ -178,6 +181,9 @@ public void Modify (ViajeEN viaje)
 
                 viajeEN.Descripcion = viaje.Descripcion;
 
+
+                viajeEN.ValoracionMedia = viaje.ValoracionMedia;
+
                 session.Update (viajeEN);
                 SessionCommit ();
         }
@@ -238,6 +244,45 @@ public void AgregarCompañero (int p_Viaje_OID, System.Collections.Generic.IList
                         compañerosENAux.ViajesCompartidos.Add (viajeEN);
 
                         viajeEN.Compañeros.Add (compañerosENAux);
+                }
+
+
+                session.Update (viajeEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException ("Error in ViajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void AsignarItinerario (int p_Viaje_OID, System.Collections.Generic.IList<int> p_itinerarios_OIDs)
+{
+        DSMGenNHibernate.EN.DSM.ViajeEN viajeEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                viajeEN = (ViajeEN)session.Load (typeof(ViajeEN), p_Viaje_OID);
+                DSMGenNHibernate.EN.DSM.ItinerarioEN itinerariosENAux = null;
+                if (viajeEN.Itinerarios == null) {
+                        viajeEN.Itinerarios = new System.Collections.Generic.List<DSMGenNHibernate.EN.DSM.ItinerarioEN>();
+                }
+
+                foreach (int item in p_itinerarios_OIDs) {
+                        itinerariosENAux = new DSMGenNHibernate.EN.DSM.ItinerarioEN ();
+                        itinerariosENAux = (DSMGenNHibernate.EN.DSM.ItinerarioEN)session.Load (typeof(DSMGenNHibernate.EN.DSM.ItinerarioEN), item);
+                        itinerariosENAux.Viajes.Add (viajeEN);
+
+                        viajeEN.Itinerarios.Add (itinerariosENAux);
                 }
 
 

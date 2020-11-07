@@ -82,6 +82,13 @@ private System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ValoracionEN> v
 
 
 
+/**
+ *	Atributo valoracionMedia
+ */
+private double valoracionMedia;
+
+
+
 
 
 
@@ -151,6 +158,12 @@ public virtual System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.Valoraci
 
 
 
+public virtual double ValoracionMedia {
+        get { return valoracionMedia; } set { valoracionMedia = value;  }
+}
+
+
+
 
 
 public ViajeEN()
@@ -164,20 +177,20 @@ public ViajeEN()
 
 
 
-public ViajeEN(int id, string nombre, string pais, string ciudad, string descripcion, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> compañeros, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> usuarios, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ItinerarioEN> itinerarios, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ComentarioEN> comentarios, DSMGenNHibernate.EN.DSM.UsuarioEN creador, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ValoracionEN> valoraciones
+public ViajeEN(int id, string nombre, string pais, string ciudad, string descripcion, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> compañeros, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> usuarios, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ItinerarioEN> itinerarios, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ComentarioEN> comentarios, DSMGenNHibernate.EN.DSM.UsuarioEN creador, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ValoracionEN> valoraciones, double valoracionMedia
                )
 {
-        this.init (Id, nombre, pais, ciudad, descripcion, compañeros, usuarios, itinerarios, comentarios, creador, valoraciones);
+        this.init (Id, nombre, pais, ciudad, descripcion, compañeros, usuarios, itinerarios, comentarios, creador, valoraciones, valoracionMedia);
 }
 
 
 public ViajeEN(ViajeEN viaje)
 {
-        this.init (Id, viaje.Nombre, viaje.Pais, viaje.Ciudad, viaje.Descripcion, viaje.Compañeros, viaje.Usuarios, viaje.Itinerarios, viaje.Comentarios, viaje.Creador, viaje.Valoraciones);
+        this.init (Id, viaje.Nombre, viaje.Pais, viaje.Ciudad, viaje.Descripcion, viaje.Compañeros, viaje.Usuarios, viaje.Itinerarios, viaje.Comentarios, viaje.Creador, viaje.Valoraciones, viaje.ValoracionMedia);
 }
 
 private void init (int id
-                   , string nombre, string pais, string ciudad, string descripcion, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> compañeros, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> usuarios, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ItinerarioEN> itinerarios, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ComentarioEN> comentarios, DSMGenNHibernate.EN.DSM.UsuarioEN creador, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ValoracionEN> valoraciones)
+                   , string nombre, string pais, string ciudad, string descripcion, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> compañeros, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> usuarios, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ItinerarioEN> itinerarios, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ComentarioEN> comentarios, DSMGenNHibernate.EN.DSM.UsuarioEN creador, System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ValoracionEN> valoraciones, double valoracionMedia)
 {
         this.Id = id;
 
@@ -201,6 +214,8 @@ private void init (int id
         this.Creador = creador;
 
         this.Valoraciones = valoraciones;
+
+        this.ValoracionMedia = valoracionMedia;
 }
 
 public override bool Equals (object obj)

@@ -39,37 +39,6 @@ public IValoracionCAD get_IValoracionCAD ()
         return this._IValoracionCAD;
 }
 
-public int New_ (int p_usuario, int p_viajes, int p_puntuacion)
-{
-        ValoracionEN valoracionEN = null;
-        int oid;
-
-        //Initialized ValoracionEN
-        valoracionEN = new ValoracionEN ();
-
-        if (p_usuario != -1) {
-                // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
-                valoracionEN.Usuario = new DSMGenNHibernate.EN.DSM.UsuarioEN ();
-                valoracionEN.Usuario.Id = p_usuario;
-        }
-
-
-        if (p_viajes != -1) {
-                // El argumento p_viajes -> Property viajes es oid = false
-                // Lista de oids id
-                valoracionEN.Viajes = new DSMGenNHibernate.EN.DSM.ViajeEN ();
-                valoracionEN.Viajes.Id = p_viajes;
-        }
-
-        valoracionEN.Puntuacion = p_puntuacion;
-
-        //Call to ValoracionCAD
-
-        oid = _IValoracionCAD.New_ (valoracionEN);
-        return oid;
-}
-
 public void Modify (int p_Valoracion_OID, int p_puntuacion)
 {
         ValoracionEN valoracionEN = null;

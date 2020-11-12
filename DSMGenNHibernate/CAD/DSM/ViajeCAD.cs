@@ -130,6 +130,36 @@ public void ModifyDefault (ViajeEN viaje)
 }
 
 
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpViaje (String v_nombre)
+{
+        System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ViajeEN self where SELECT * FROM ViajeEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ViajeENbuscarpViajeHQL");
+                query.SetParameter ("v_nombre", v_nombre);
+
+                result = query.List<DSMGenNHibernate.EN.DSM.ViajeEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException ("Error in ViajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 public int CrearViaje (ViajeEN viaje)
 {
         try
@@ -226,6 +256,29 @@ public void Destroy (int id
         }
 }
 
+        public void ModificarMedia(int media)
+        {
+
+            DSMGenNHibernate.EN.DSM.ViajeEN viajeEN = null;
+            try
+            {
+                viajeEN.ValoracionMedia = media;
+            }
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException("Error in ViajeCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+        }
+
 public void AgregarCompañero (int p_Viaje_OID, System.Collections.Generic.IList<int> p_compañeros_OIDs)
 {
         DSMGenNHibernate.EN.DSM.ViajeEN viajeEN = null;
@@ -302,6 +355,37 @@ public void AsignarItinerario (int p_Viaje_OID, System.Collections.Generic.IList
         {
                 SessionClose ();
         }
+}
+
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpPais (String v_pais)
+{
+        System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ViajeEN self where SELECT * FROM ViajeEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ViajeENbuscarpPaisHQL");
+                query.SetParameter ("v_pais", v_pais);
+
+                result = query.List<DSMGenNHibernate.EN.DSM.ViajeEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException ("Error in ViajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

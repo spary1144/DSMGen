@@ -127,6 +127,10 @@
 			
 			
 			
+			<Compile Include="CP\DSM\UsuarioCP_AgregarAmigos.cs" />
+			
+			
+			
 			
 	<Compile Include="EN\DSM\ViajeEN.cs" />
 	<Compile Include="CEN\DSM\ViajeCEN.cs" />
@@ -135,7 +139,7 @@
 	<Compile Include="CP\DSM\ViajeCP.cs" />
 			<Compile Include="CEN\DSM\ViajeCEN_ConsultarViaje.cs" />
 			
-			<Compile Include="CEN\DSM\ViajeCEN_BuscarViaje.cs" />
+			
 			
 			
 			

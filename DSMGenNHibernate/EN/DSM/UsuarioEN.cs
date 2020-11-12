@@ -140,6 +140,15 @@ public virtual System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.Valoraci
 
 
 
+
+public virtual string Attribute {
+        /*PROTECTED REGION ID(EN_derived__vnJ1ICKxEeutgf5rSjBNxQ) ENABLED START*/
+        // Write here your custom code...
+        get { throw new NotSupportedException ("get	Attribute() not yet implemented."); }
+        /*PROTECTED REGION END*/
+}
+
+
 public UsuarioEN()
 {
         viajesCompartidos = new System.Collections.Generic.List<DSMGenNHibernate.EN.DSM.ViajeEN>();

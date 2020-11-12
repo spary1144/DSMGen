@@ -98,11 +98,81 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         list = _IUsuarioCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> BuscarAmigo (String u_nombre)
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> BuscarAmigo (int u_nombre)
 {
-
-
         return _IUsuarioCAD.BuscarAmigo (u_nombre);
+}
+public string IniciarSesion (int p_Usuario_OID, string p_pass)
+{
+        string result = null;
+        UsuarioEN en = _IUsuarioCAD.ReadOIDDefault (p_Usuario_OID);
+
+        if (en != null && en.Pass.Equals (Utils.Util.GetEncondeMD5 (p_pass)))
+                result = this.GetToken (en.Id);
+
+        return result;
+}
+
+
+
+
+private string Encode (int id)
+{
+        var payload = new Dictionary<string, object>(){
+                { "id", id }
+        };
+        string token = Jose.JWT.Encode (payload, Utils.Util.getKey (), Jose.JwsAlgorithm.HS256);
+
+        return token;
+}
+
+public string GetToken (int id)
+{
+        UsuarioEN en = _IUsuarioCAD.ReadOIDDefault (id);
+        string token = Encode (en.Id);
+
+        return token;
+}
+public int CheckToken (string token)
+{
+        int result = -1;
+
+        try
+        {
+                string decodedToken = Utils.Util.Decode (token);
+
+
+
+                int id = (int)ObtenerID (decodedToken);
+
+                UsuarioEN en = _IUsuarioCAD.ReadOIDDefault (id);
+
+                if (en != null && ((long)en.Id).Equals (ObtenerID (decodedToken))
+                    ) {
+                        result = id;
+                }
+                else throw new ModelException ("El token es incorrecto");
+        } catch (Exception e)
+        {
+                throw new ModelException ("El token es incorrecto");
+        }
+
+        return result;
+}
+
+
+public long ObtenerID (string decodedToken)
+{
+        try
+        {
+                Dictionary<string, object> results = JsonConvert.DeserializeObject<Dictionary<string, object> >(decodedToken);
+                long id = (long)results ["id"];
+                return id;
+        }
+        catch
+        {
+                throw new Exception ("El token enviado no es correcto");
+        }
 }
 }
 }

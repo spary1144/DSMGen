@@ -130,7 +130,7 @@ public void ModifyDefault (ViajeEN viaje)
 }
 
 
-public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpViaje (String v_nombre)
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpViaje (int v_nombre)
 {
         System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> result;
         try
@@ -256,29 +256,6 @@ public void Destroy (int id
         }
 }
 
-        public void ModificarMedia(int media)
-        {
-
-            DSMGenNHibernate.EN.DSM.ViajeEN viajeEN = null;
-            try
-            {
-                viajeEN.ValoracionMedia = media;
-            }
-            catch (Exception ex)
-            {
-                SessionRollBack();
-                if (ex is DSMGenNHibernate.Exceptions.ModelException)
-                    throw ex;
-                throw new DSMGenNHibernate.Exceptions.DataLayerException("Error in ViajeCAD.", ex);
-            }
-
-
-            finally
-            {
-                SessionClose();
-            }
-        }
-
 public void AgregarCompañero (int p_Viaje_OID, System.Collections.Generic.IList<int> p_compañeros_OIDs)
 {
         DSMGenNHibernate.EN.DSM.ViajeEN viajeEN = null;
@@ -357,13 +334,13 @@ public void AsignarItinerario (int p_Viaje_OID, System.Collections.Generic.IList
         }
 }
 
-public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpPais (String v_pais)
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpPais (int v_pais)
 {
         System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ViajeEN self where SELECT * FROM ViajeEN";
+                //String sql = @"FROM ViajeEN self where FROM ViajeEN";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ViajeENbuscarpPaisHQL");
                 query.SetParameter ("v_pais", v_pais);

@@ -117,6 +117,8 @@
 	<Compile Include="CAD\DSM\IUsuarioCAD.cs" />
 	<Compile Include="CAD\DSM\UsuarioCAD.cs" />
 	<Compile Include="CP\DSM\UsuarioCP.cs" />
+			<Compile Include="CEN\DSM\UsuarioCEN_IniciarSesion.cs" />
+			
 			<Compile Include="CEN\DSM\UsuarioCEN_ConsultarPerfil.cs" />
 			
 			<Compile Include="CEN\DSM\UsuarioCEN_EditarPerfil.cs" />
@@ -126,7 +128,6 @@
 			
 			
 			<Compile Include="CP\DSM\UsuarioCP_AgregarAmigos.cs" />
-			
 			
 			
 			
@@ -150,6 +151,10 @@
 	<Compile Include="CAD\DSM\IComentarioCAD.cs" />
 	<Compile Include="CAD\DSM\ComentarioCAD.cs" />
 	<Compile Include="CP\DSM\ComentarioCP.cs" />
+			<Compile Include="CEN\DSM\ComentarioCEN_EscribirComentario.cs" />
+			
+			<Compile Include="CEN\DSM\ComentarioCEN_BorrarComentario.cs" />
+			
 			
 			
 			
@@ -160,7 +165,6 @@
 	<Compile Include="CP\DSM\TransporteCP.cs" />
 			<Compile Include="CEN\DSM\TransporteCEN_Consultar.cs" />
 			
-			<Compile Include="CP\DSM\TransporteCP_New_.cs" />
 			
 			
 			
@@ -171,7 +175,6 @@
 	<Compile Include="CP\DSM\AlojamientoCP.cs" />
 			<Compile Include="CEN\DSM\AlojamientoCEN_Consultar.cs" />
 			
-			<Compile Include="CP\DSM\AlojamientoCP_New_.cs" />
 			
 			
 			
@@ -182,7 +185,6 @@
 	<Compile Include="CP\DSM\Lugar_de_interesCP.cs" />
 			<Compile Include="CEN\DSM\Lugar_de_interesCEN_Consultar.cs" />
 			
-			<Compile Include="CP\DSM\Lugar_de_interesCP_New_.cs" />
 			
 			
 			

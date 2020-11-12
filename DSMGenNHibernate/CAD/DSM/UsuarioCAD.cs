@@ -103,6 +103,7 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -340,13 +341,13 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> BuscarAmigo (int u_nombre)
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> BuscarAmigo (String u_nombre)
 {
         System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioEN self where SELECT * FROM UsuarioEN";
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN usu WHERE usu.Nombre = :u_nombre";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENbuscarAmigoHQL");
                 query.SetParameter ("u_nombre", u_nombre);

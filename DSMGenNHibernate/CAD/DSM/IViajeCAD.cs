@@ -16,7 +16,7 @@ System.Collections.Generic.IList<ViajeEN> ReadAllDefault (int first, int size);
 
 
 
-System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpViaje (int v_nombre);
+System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpViaje (String v_nombre);
 
 
 int CrearViaje (ViajeEN viaje);
@@ -32,6 +32,6 @@ void AgregarCompañero (int p_Viaje_OID, System.Collections.Generic.IList<int> p
 
 void AsignarItinerario (int p_Viaje_OID, System.Collections.Generic.IList<int> p_itinerarios_OIDs);
 
-System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpPais (int v_pais);
+System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpPais (String v_pais);
 }
 }

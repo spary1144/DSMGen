@@ -39,6 +39,35 @@ public ITransporteCAD get_ITransporteCAD ()
         return this._ITransporteCAD;
 }
 
+public int New_ (int p_orden, int p_itinerario, DSMGenNHibernate.Enumerated.DSM.TipoTransporteEnum p_tipo, string p_origen, string p_destino)
+{
+        TransporteEN transporteEN = null;
+        int oid;
+
+        //Initialized TransporteEN
+        transporteEN = new TransporteEN ();
+        transporteEN.Orden = p_orden;
+
+
+        if (p_itinerario != -1) {
+                // El argumento p_itinerario -> Property itinerario es oid = false
+                // Lista de oids id
+                transporteEN.Itinerario = new DSMGenNHibernate.EN.DSM.ItinerarioEN ();
+                transporteEN.Itinerario.Id = p_itinerario;
+        }
+
+        transporteEN.Tipo = p_tipo;
+
+        transporteEN.Origen = p_origen;
+
+        transporteEN.Destino = p_destino;
+
+        //Call to TransporteCAD
+
+        oid = _ITransporteCAD.New_ (transporteEN);
+        return oid;
+}
+
 public void Modify (int p_Transporte_OID, int p_orden, DSMGenNHibernate.Enumerated.DSM.TipoTransporteEnum p_tipo, string p_origen, string p_destino)
 {
         TransporteEN transporteEN = null;

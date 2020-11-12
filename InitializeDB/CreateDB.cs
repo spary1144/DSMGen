@@ -26,7 +26,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         // Order T-SQL create user
         String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
             BEGIN
-                CREATE LOGIN ["+ user + @"] WITH PASSWORD=N'" + pass + @"', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+                CREATE LOGIN ["                                                                                                                                     + user + @"] WITH PASSWORD=N'" + pass + @"', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
             END"                                                                                                                                                                                                                                                                                    ;
 
         //Order delete user if exist
@@ -82,7 +82,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Estamos dentro");
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
-                
+<<<<<<< HEAD
                 UsuarioCEN usucen1 = new UsuarioCEN ();
                 usucen1.New_ ("Jorge", "1234");
 
@@ -99,16 +99,16 @@ public static void InitializeData ()
                 usucen5.New_ ("MIA", "1234");
 
 
-                if (usucen1.IniciarSesion("Jorge", "1234") != null) {
+                if (usucen1.IniciarSesion ("Jorge", "1234") != null) {
                         Console.WriteLine ("Jorge ha inciado sesi�n");
                 }
-
+=======
                 UsuarioCEN usucen = new UsuarioCEN();
                 usucen.New_("Jorge", "1234");
 
 
-                //cambio2
-                //hay cambios
+                //cambio
+                
                 //Esto es un cambio
 
                 /*PROTECTED REGION END*/

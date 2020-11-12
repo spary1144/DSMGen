@@ -39,7 +39,7 @@ public IViajeCAD get_IViajeCAD ()
         return this._IViajeCAD;
 }
 
-public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpViaje (String v_nombre)
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpViaje (int v_nombre)
 {
         return _IViajeCAD.BuscarpViaje (v_nombre);
 }
@@ -91,8 +91,6 @@ public void Modify (int p_Viaje_OID, string p_nombre, string p_pais, string p_ci
         _IViajeCAD.Modify (viajeEN);
 }
 
-
-
 public void Destroy (int id
                      )
 {
@@ -105,21 +103,13 @@ public void AgregarCompañero (int p_Viaje_OID, System.Collections.Generic.IList
 
         _IViajeCAD.AgregarCompañero (p_Viaje_OID, p_compañeros_OIDs);
 }
-
-        public void ModificarMedia(int media)
-        {
-            
-
-           
-        }
-
 public void AsignarItinerario (int p_Viaje_OID, System.Collections.Generic.IList<int> p_itinerarios_OIDs)
 {
         //Call to ViajeCAD
 
         _IViajeCAD.AsignarItinerario (p_Viaje_OID, p_itinerarios_OIDs);
 }
-public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpPais (String v_pais)
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> BuscarpPais (int v_pais)
 {
         return _IViajeCAD.BuscarpPais (v_pais);
 }

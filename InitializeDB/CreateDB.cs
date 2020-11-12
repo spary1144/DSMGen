@@ -82,6 +82,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Estamos dentro");
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
+<<<<<<< HEAD
                 UsuarioCEN usucen1 = new UsuarioCEN ();
                 usucen1.New_ ("Jorge", "1234");
 
@@ -101,6 +102,14 @@ public static void InitializeData ()
                 if (usucen1.IniciarSesion ("Jorge", "1234") != null) {
                         Console.WriteLine ("Jorge ha inciado sesi�n");
                 }
+=======
+                UsuarioCEN usucen = new UsuarioCEN();
+                usucen.New_("Jorge", "1234");
+
+
+                //cambio
+                
+>>>>>>> ae99d4a194899a09a374ed84c1f8117037174bbd
                 //Esto es un cambio
 
                 /*PROTECTED REGION END*/

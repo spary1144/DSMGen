@@ -111,5 +111,7 @@
 		 </class>	
 		  
 		  <query name="ViajeENReadAllHQL">from ViajeEN</query>
+		  <query name="ViajeENbuscarpViajeHQL"><![CDATA[SELECT * FROM ViajeEN]]></query>
+		  <query name="ViajeENbuscarpPaisHQL"><![CDATA[SELECT * FROM ViajeEN]]></query>
 		</hibernate-mapping>
 	

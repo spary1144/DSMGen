@@ -82,11 +82,27 @@ public void AgregarViajesGuardados (int p_Usuario_OID, System.Collections.Generi
 
         _IUsuarioCAD.AgregarViajesGuardados (p_Usuario_OID, p_viajesGuardados_OIDs);
 }
-public void AgregarAmigos (int p_Usuario_OID, System.Collections.Generic.IList<int> p_amigos_OIDs)
+public UsuarioEN ReadOID (int id
+                          )
 {
-        //Call to UsuarioCAD
+        UsuarioEN usuarioEN = null;
 
-        _IUsuarioCAD.AgregarAmigos (p_Usuario_OID, p_amigos_OIDs);
+        usuarioEN = _IUsuarioCAD.ReadOID (id);
+        return usuarioEN;
+}
+
+public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> list = null;
+
+        list = _IUsuarioCAD.ReadAll (first, size);
+        return list;
+}
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> BuscarAmigo (String u_nombre)
+{
+
+
+        return _IUsuarioCAD.BuscarAmigo (u_nombre);
 }
 }
 }

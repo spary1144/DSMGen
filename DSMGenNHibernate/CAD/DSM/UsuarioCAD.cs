@@ -103,6 +103,7 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -278,6 +279,97 @@ public void AgregarAmigos (int p_Usuario_OID, System.Collections.Generic.IList<i
         {
                 SessionClose ();
         }
+}
+
+//Sin e: ReadOID
+//Con e: UsuarioEN
+public UsuarioEN ReadOID (int id
+                          )
+{
+        UsuarioEN usuarioEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return usuarioEN;
+}
+
+public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(UsuarioEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<UsuarioEN>();
+                else
+                        result = session.CreateCriteria (typeof(UsuarioEN)).List<UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> BuscarAmigo (String u_nombre)
+{
+        System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN usu WHERE usu.Nombre = :u_nombre";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENbuscarAmigoHQL");
+                query.SetParameter ("u_nombre", u_nombre);
+
+                result = query.List<DSMGenNHibernate.EN.DSM.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

@@ -79,9 +79,30 @@ public static void InitializeData ()
         {
                 // Insert the initilizations of entities using the CEN classes
 
-
+                Console.WriteLine ("Estamos dentro");
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
+<<<<<<< HEAD
+                UsuarioCEN usucen1 = new UsuarioCEN ();
+                usucen1.New_ ("Jorge", "1234");
+
+                UsuarioCEN usucen2 = new UsuarioCEN ();
+                usucen2.New_ ("Laureano", "1234");
+
+                UsuarioCEN usucen3 = new UsuarioCEN ();
+                usucen3.New_ ("Javier", "1234");
+
+                UsuarioCEN usucen4 = new UsuarioCEN ();
+                usucen4.New_ ("Alicia", "1234");
+
+                UsuarioCEN usucen5 = new UsuarioCEN ();
+                usucen5.New_ ("MIA", "1234");
+
+
+                if (usucen1.IniciarSesion ("Jorge", "1234") != null) {
+                        Console.WriteLine ("Jorge ha inciado sesi�n");
+                }
+=======
                 UsuarioCEN usucen = new UsuarioCEN();
                 usucen.New_("Jorge", "1234");
 

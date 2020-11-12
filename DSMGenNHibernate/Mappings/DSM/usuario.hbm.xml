@@ -108,5 +108,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENbuscarAmigoHQL"><![CDATA[SELECT * FROM UsuarioEN]]></query>
 		</hibernate-mapping>
 	

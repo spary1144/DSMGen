@@ -27,8 +27,8 @@ public DSMGenNHibernate.EN.DSM.ValoracionEN New_ (int p_usuario, int p_viajes, i
 
         IValoracionCAD valoracionCAD = null;
         ValoracionCEN valoracionCEN = null;
-            ViajeCAD viajecad = null;
-            ViajeCEN viajecen = null;
+        ViajeCAD viajecad = null;
+        ViajeCEN viajecen = null;
 
         DSMGenNHibernate.EN.DSM.ValoracionEN result = null;
 
@@ -38,9 +38,8 @@ public DSMGenNHibernate.EN.DSM.ValoracionEN New_ (int p_usuario, int p_viajes, i
                 SessionInitializeTransaction ();
                 valoracionCAD = new ValoracionCAD (session);
                 valoracionCEN = new  ValoracionCEN (valoracionCAD);
-                viajecad = new ViajeCAD(session);
-                viajecen = new ViajeCEN(viajecad);
-
+                viajecad = new ViajeCAD (session);
+                viajecen = new ViajeCEN (viajecad);
 
 
                 int oid;
@@ -66,13 +65,16 @@ public DSMGenNHibernate.EN.DSM.ValoracionEN New_ (int p_usuario, int p_viajes, i
                 oid = valoracionCAD.New_ (valoracionEN);
                 result = valoracionCAD.ReadOIDDefault (oid);
 
-                ViajeEN viajeen = viajecad.ReadOIDDefault(p_viajes);
-
+                ViajeEN viajeen = viajecad.ReadOIDDefault (p_viajes);
+                int valoracion = p_puntuacion;
                 //Aqui calculamos la media
-                    // esta variable es la que actualizamos después del calculo viajeen.ValoracionMedia
+
+                double a = viajeen.ValoracionMedia;
+                viajeen. = (a + p_puntuacion) / 2;
+                // esta variable es la que actualizamos despuï¿½s del calculo viajeen.ValoracionMedia
                 //
 
-                viajecad.ModifyDefault(viajeen);
+                viajecad.ModifyDefault (viajeen);
 
                 SessionCommit ();
         }

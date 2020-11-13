@@ -22,7 +22,7 @@ private DSMGenNHibernate.EN.DSM.ViajeEN viajes;
 /**
  *	Atributo puntuacion
  */
-private int puntuacion;
+private double puntuacion;
 
 
 
@@ -48,7 +48,7 @@ public virtual DSMGenNHibernate.EN.DSM.ViajeEN Viajes {
 
 
 
-public virtual int Puntuacion {
+public virtual double Puntuacion {
         get { return puntuacion; } set { puntuacion = value;  }
 }
 
@@ -68,7 +68,7 @@ public ValoracionEN()
 
 
 
-public ValoracionEN(int id, DSMGenNHibernate.EN.DSM.UsuarioEN usuario, DSMGenNHibernate.EN.DSM.ViajeEN viajes, int puntuacion
+public ValoracionEN(int id, DSMGenNHibernate.EN.DSM.UsuarioEN usuario, DSMGenNHibernate.EN.DSM.ViajeEN viajes, double puntuacion
                     )
 {
         this.init (Id, usuario, viajes, puntuacion);
@@ -81,7 +81,7 @@ public ValoracionEN(ValoracionEN valoracion)
 }
 
 private void init (int id
-                   , DSMGenNHibernate.EN.DSM.UsuarioEN usuario, DSMGenNHibernate.EN.DSM.ViajeEN viajes, int puntuacion)
+                   , DSMGenNHibernate.EN.DSM.UsuarioEN usuario, DSMGenNHibernate.EN.DSM.ViajeEN viajes, double puntuacion)
 {
         this.Id = id;
 

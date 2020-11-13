@@ -12,7 +12,7 @@
 						</id>
 			
 					
-					<property name="Puntuacion" type="integer"> 
+					<property name="Puntuacion" type="double"> 
 						<column name="puntuacion"  not-null="true"/>
 					</property>
 			

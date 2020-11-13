@@ -17,6 +17,13 @@ System.Collections.Generic.IList<ValoracionEN> ReadAllDefault (int first, int si
 
 
 
+ValoracionEN ReadOID (int id
+                      );
+
+
+System.Collections.Generic.IList<ValoracionEN> ReadAll (int first, int size);
+
+
 int New_ (ValoracionEN valoracion);
 
 void Modify (ValoracionEN valoracion);

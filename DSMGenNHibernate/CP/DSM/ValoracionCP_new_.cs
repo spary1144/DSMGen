@@ -21,7 +21,7 @@ namespace DSMGenNHibernate.CP.DSM
 {
 public partial class ValoracionCP : BasicCP
 {
-public DSMGenNHibernate.EN.DSM.ValoracionEN New_ (int p_usuario, int p_viajes, int p_puntuacion)
+public DSMGenNHibernate.EN.DSM.ValoracionEN New_ (int p_usuario, int p_viajes, double p_puntuacion)
 {
         /*PROTECTED REGION ID(DSMGenNHibernate.CP.DSM_Valoracion_new_) ENABLED START*/
 

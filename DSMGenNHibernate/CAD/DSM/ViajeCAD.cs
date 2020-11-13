@@ -136,7 +136,7 @@ public System.Collections.Generic.IList<DSMGenNHibernate.EN.DSM.ViajeEN> Buscarp
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ViajeEN self where SELECT * FROM ViajeEN";
+                //String sql = @"FROM ViajeEN self where FROM ViajeEN as viaje inner join viaje.";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ViajeENbuscarpViajeHQL");
                 query.SetParameter ("v_nombre", v_nombre);

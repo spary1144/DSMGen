@@ -114,6 +114,66 @@ public void ModifyDefault (ValoracionEN valoracion)
 }
 
 
+//Sin e: ReadOID
+//Con e: ValoracionEN
+public ValoracionEN ReadOID (int id
+                             )
+{
+        ValoracionEN valoracionEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                valoracionEN = (ValoracionEN)session.Get (typeof(ValoracionEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException ("Error in ValoracionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return valoracionEN;
+}
+
+public System.Collections.Generic.IList<ValoracionEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<ValoracionEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(ValoracionEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<ValoracionEN>();
+                else
+                        result = session.CreateCriteria (typeof(ValoracionEN)).List<ValoracionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DSMGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DSMGenNHibernate.Exceptions.DataLayerException ("Error in ValoracionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
 public int New_ (ValoracionEN valoracion)
 {
         try

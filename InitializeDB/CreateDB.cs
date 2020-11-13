@@ -82,36 +82,101 @@ public static void InitializeData ()
                 Console.WriteLine ("Estamos dentro");
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
-                << << << < HEAD
+               
+
+
+                // Usuarios Inicializados
                 UsuarioCEN usucen1 = new UsuarioCEN ();
-                usucen1.New_ ("Jorge", "1234");
-
-                UsuarioCEN usucen2 = new UsuarioCEN ();
-                usucen2.New_ ("Laureano", "1234");
-
-                UsuarioCEN usucen3 = new UsuarioCEN ();
-                usucen3.New_ ("Javier", "1234");
-
-                UsuarioCEN usucen4 = new UsuarioCEN ();
-                usucen4.New_ ("Alicia", "1234");
-
-                UsuarioCEN usucen5 = new UsuarioCEN ();
-                usucen5.New_ ("MIA", "1234");
+                int user1 = usucen1.New_("Jorge", "1234");
+                int user2 = usucen1.New_("Laureano", "1234");
+                int user3 = usucen1.New_("Alicia","1234");
+                int user4 = usucen1.New_("Trap","1234");
 
 
-                if (usucen1.IniciarSesion ("Jorge", "1234") != null) {
-                        Console.WriteLine ("Jorge ha inciado sesi�n");
-                }
-                == == == = 
-                        UsuarioCEN usucen = new UsuarioCEN ();
-                usucen.New_ ("Jorge", "1234");
+                UsuarioCAD usu1CAD = new UsuarioCAD();
+                UsuarioCEN usu1CEN = new UsuarioCEN(usu1CAD);
+                UsuarioEN usu1EN = usu1CEN.ReadOID(usucen1.New_("Alex", "1234"));
+
+                
+                UsuarioEN usuen = new UsuarioEN();
+                int id1 = usuen.Id;
+                //Viajes Inicializados
+                ViajeCEN viajecen = new ViajeCEN ();
+                int v1 = viajecen.CrearViaje ("Viaje 1", "España", "Alicante", "El mejor viaje de laureano", id1, 0.0);
+                int v2 = viajecen.CrearViaje ("Viaje 2", "Francia", "Paris", "El peor viaje de laureano", usuen.Id, 0.0);
+                int v3 = viajecen.CrearViaje ("Viaje 3", "Rusia", "Moskva", "Un viaje normal de laureano", usuen.Id, 0.0);
+
+                //Valoracion de Viaje
+
+                ValoracionCEN vViaje = new ValoracionCEN ();
+                int valV = vViaje.New_(user4, v1, 4.0);
 
 
-                //cambio
+                //Itinerario
+                ItinerarioCEN itinerarioCEN = new ItinerarioCEN();
+                itinerarioCEN.New_("10/10/00");
 
-                //Esto es un cambio
+                ItinerarioCAD itinerariocad = new ItinerarioCAD();
+                ItinerarioCEN itinerarioCEN2 = new ItinerarioCEN(itinerariocad);
 
-                /*PROTECTED REGION END*/
+                ItinerarioEN itinerarioEN = new ItinerarioEN();
+
+                //Inicializar punto de itinerario
+
+                PuntoDeItinerarioCEN pdicen = new PuntoDeItinerarioCEN();
+                //El primer punto será 0 porque es el de partida
+                pdicen.New_(0, itinerarioEN.Id);
+
+                TransporteCAD transportecad = new TransporteCAD();
+                TransporteCEN transportecen = new TransporteCEN(transportecad);
+                TransporteEN transpoerteen = new TransporteEN();
+                transportecad.New_(transpoerteen);
+                transpoerteen.Tipo = 1;
+
+
+                // Alojamiento
+
+                AlojamientoCAD alojamientoCAD = new AlojamientoCAD();
+                AlojamientoCEN alojamientoCEN = new AlojamientoCEN();
+                AlojamientoEN alojamientoEN = new AlojamientoEN();
+                alojamientoCAD.New_(alojamientoEN);
+
+                alojamientoEN.Tipo = 1;
+
+                alojamientoCEN.Consultar(alojamientoEN.Id);
+                
+                
+
+
+                //Sitio de interes
+
+                Lugar_de_interesCAD lugar_De_InteresCAD = new Lugar_de_interesCAD();
+                Lugar_de_interesCEN lugar_De_InteresCEN = new Lugar_de_interesCEN();
+                Lugar_de_interesEN lugar_De_InteresEN = new Lugar_de_interesEN();
+
+                lugar_De_InteresCAD.New_(lugar_De_InteresEN);
+
+                lugar_De_InteresEN.Tipo = 1;
+
+                //Comentarios
+                ComentarioCAD comentarioCAD = new ComentarioCAD();
+                ComentarioEN comentarioen = new ComentarioEN();
+                comentarioCAD.New_(comentarioen);
+
+
+
+
+                /*
+                if (usucen1.IniciarSesion (id, "1234") != null) {
+                       Console.WriteLine ("Jorge ha inciado sesi�n");
+                }*/
+
+
+                        //cambio
+
+                        //Esto es un cambio
+
+                        /*PROTECTED REGION END*/
         }
         catch (Exception ex)
         {

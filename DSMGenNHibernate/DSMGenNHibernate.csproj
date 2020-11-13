@@ -220,7 +220,8 @@
 			
 			<Compile Include="CEN\DSM\ValoracionCEN_ConsultarRanking.cs" />
 			
-			<Compile Include="CP\DSM\ValoracionCP_New_.cs" />
+			
+			
 			
 			
 			

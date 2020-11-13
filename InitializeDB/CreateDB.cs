@@ -82,23 +82,23 @@ public static void InitializeData ()
                 Console.WriteLine ("Estamos dentro");
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
-               
+
 
 
                 // Usuarios Inicializados
                 UsuarioCEN usucen1 = new UsuarioCEN ();
-                int user1 = usucen1.New_("Jorge", "1234");
-                int user2 = usucen1.New_("Laureano", "1234");
-                int user3 = usucen1.New_("Alicia","1234");
-                int user4 = usucen1.New_("Trap","1234");
+                int user1 = usucen1.New_ ("Jorge", "1234");
+                int user2 = usucen1.New_ ("Laureano", "1234");
+                int user3 = usucen1.New_ ("Alicia", "1234");
+                int user4 = usucen1.New_ ("Trap", "1234");
 
 
-                UsuarioCAD usu1CAD = new UsuarioCAD();
-                UsuarioCEN usu1CEN = new UsuarioCEN(usu1CAD);
-                UsuarioEN usu1EN = usu1CEN.ReadOID(usucen1.New_("Alex", "1234"));
+                UsuarioCAD usu1CAD = new UsuarioCAD ();
+                UsuarioCEN usu1CEN = new UsuarioCEN (usu1CAD);
+                UsuarioEN usu1EN = usu1CEN.ReadOID (usucen1.New_ ("Alex", "1234"));
 
-                
-                UsuarioEN usuen = new UsuarioEN();
+
+                UsuarioEN usuen = new UsuarioEN ();
                 int id1 = usuen.Id;
                 //Viajes Inicializados
                 ViajeCEN viajecen = new ViajeCEN ();
@@ -109,74 +109,74 @@ public static void InitializeData ()
                 //Valoracion de Viaje
 
                 ValoracionCEN vViaje = new ValoracionCEN ();
-                int valV = vViaje.New_(user4, v1, 4.0);
+                int valV = vViaje.New_ (user4, v1, 4.0);
 
 
                 //Itinerario
-                ItinerarioCEN itinerarioCEN = new ItinerarioCEN();
-                itinerarioCEN.New_("10/10/00");
+                ItinerarioCEN itinerarioCEN = new ItinerarioCEN ();
+                itinerarioCEN.New_ ("10/10/00");
 
-                ItinerarioCAD itinerariocad = new ItinerarioCAD();
-                ItinerarioCEN itinerarioCEN2 = new ItinerarioCEN(itinerariocad);
+                ItinerarioCAD itinerariocad = new ItinerarioCAD ();
+                ItinerarioCEN itinerarioCEN2 = new ItinerarioCEN (itinerariocad);
 
-                ItinerarioEN itinerarioEN = new ItinerarioEN();
+                ItinerarioEN itinerarioEN = new ItinerarioEN ();
 
                 //Inicializar punto de itinerario
 
-                PuntoDeItinerarioCEN pdicen = new PuntoDeItinerarioCEN();
+                PuntoDeItinerarioCEN pdicen = new PuntoDeItinerarioCEN ();
                 //El primer punto será 0 porque es el de partida
-                pdicen.New_(0, itinerarioEN.Id);
+                pdicen.New_ (0, itinerarioEN.Id);
 
-                TransporteCAD transportecad = new TransporteCAD();
-                TransporteCEN transportecen = new TransporteCEN(transportecad);
-                TransporteEN transpoerteen = new TransporteEN();
-                transportecad.New_(transpoerteen);
+                TransporteCAD transportecad = new TransporteCAD ();
+                TransporteCEN transportecen = new TransporteCEN (transportecad);
+                TransporteEN transpoerteen = new TransporteEN ();
+                transportecad.New_ (transpoerteen);
                 transpoerteen.Tipo = 1;
 
 
                 // Alojamiento
 
-                AlojamientoCAD alojamientoCAD = new AlojamientoCAD();
-                AlojamientoCEN alojamientoCEN = new AlojamientoCEN();
-                AlojamientoEN alojamientoEN = new AlojamientoEN();
-                alojamientoCAD.New_(alojamientoEN);
+                AlojamientoCAD alojamientoCAD = new AlojamientoCAD ();
+                AlojamientoCEN alojamientoCEN = new AlojamientoCEN ();
+                AlojamientoEN alojamientoEN = new AlojamientoEN ();
+                alojamientoCAD.New_ (alojamientoEN);
 
                 alojamientoEN.Tipo = 1;
 
-                alojamientoCEN.Consultar(alojamientoEN.Id);
-                
-                
+                alojamientoCEN.Consultar (alojamientoEN.Id);
+
+
 
 
                 //Sitio de interes
 
-                Lugar_de_interesCAD lugar_De_InteresCAD = new Lugar_de_interesCAD();
-                Lugar_de_interesCEN lugar_De_InteresCEN = new Lugar_de_interesCEN();
-                Lugar_de_interesEN lugar_De_InteresEN = new Lugar_de_interesEN();
+                Lugar_de_interesCAD lugar_De_InteresCAD = new Lugar_de_interesCAD ();
+                Lugar_de_interesCEN lugar_De_InteresCEN = new Lugar_de_interesCEN ();
+                Lugar_de_interesEN lugar_De_InteresEN = new Lugar_de_interesEN ();
 
-                lugar_De_InteresCAD.New_(lugar_De_InteresEN);
+                lugar_De_InteresCAD.New_ (lugar_De_InteresEN);
 
                 lugar_De_InteresEN.Tipo = 1;
 
                 //Comentarios
-                ComentarioCAD comentarioCAD = new ComentarioCAD();
-                ComentarioEN comentarioen = new ComentarioEN();
-                comentarioCAD.New_(comentarioen);
+                ComentarioCAD comentarioCAD = new ComentarioCAD ();
+                ComentarioEN comentarioen = new ComentarioEN ();
+                comentarioCAD.New_ (comentarioen);
 
 
 
 
                 /*
-                if (usucen1.IniciarSesion (id, "1234") != null) {
-                       Console.WriteLine ("Jorge ha inciado sesi�n");
-                }*/
+                 * if (usucen1.IniciarSesion (id, "1234") != null) {
+                 *     Console.WriteLine ("Jorge ha inciado sesi�n");
+                 * }*/
 
 
-                        //cambio
+                //cambio
 
-                        //Esto es un cambio
+                //Esto es un cambio
 
-                        /*PROTECTED REGION END*/
+                /*PROTECTED REGION END*/
         }
         catch (Exception ex)
         {

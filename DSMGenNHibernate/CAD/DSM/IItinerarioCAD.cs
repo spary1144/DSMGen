@@ -16,9 +16,6 @@ System.Collections.Generic.IList<ItinerarioEN> ReadAllDefault (int first, int si
 
 
 
-
-
-
 int New_ (ItinerarioEN itinerario);
 
 void Modify (ItinerarioEN itinerario);

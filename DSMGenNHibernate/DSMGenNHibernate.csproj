@@ -193,12 +193,6 @@
 	<Compile Include="CP\DSM\ItinerarioCP.cs" />
 			<Compile Include="CEN\DSM\ItinerarioCEN_ConsultarIntinerario.cs" />
 			
-			<Compile Include="CEN\DSM\ItinerarioCEN_BorrarIntinerario.cs" />
-			
-			<Compile Include="CEN\DSM\ItinerarioCEN_ModificarIntinerario.cs" />
-			
-			<Compile Include="CEN\DSM\ItinerarioCEN_CrearIntinerario.cs" />
-			
 			
 			
 			
